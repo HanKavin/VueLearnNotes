@@ -1,2 +1,1 @@
-# VueLearnNotes
-小白的vue学习笔记
+# 小白的成长历程
