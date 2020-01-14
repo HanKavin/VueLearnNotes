@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <h2>{{message}}</h2>
+<!--  <img v-bind:src="imgURL" alt="">//不可以直接使用mustache语法-->
+  <a v-bind:href="aHref" target="_blank"><img v-bind:src="imgURL" alt=""></a>
+<!--  语法糖，简写为“:”-->
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '哈哈哈',
+      imgURL: 'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3852389049,2089670480&fm=26&gp=0.jpg',
+      aHref: 'https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&sf=1&fmq=&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&fm=index&pos=history&word=%E6%88%90%E6%9E%9C%E6%BC%94%E5%91%98'
+    }
+  })
+</script>
+
+
+</body>
+</html>
