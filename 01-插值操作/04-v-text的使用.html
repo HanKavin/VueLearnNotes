@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{message}},快快快</h2>
+  <h2 v-text="message">啦啦啦</h2>//使用v-text会将标签中的内容覆盖掉
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '哈哈哈'
+    }
+  })
+</script>
+
+
+</body>
+</html>
