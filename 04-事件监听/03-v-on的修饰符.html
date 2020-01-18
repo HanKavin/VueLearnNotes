@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--  .stop修饰符的使用，阻止事件冒泡-->
+  <div @click="divClick">
+    <button @click.stop="btnClick">按钮1</button>
+  </div>
+
+  <!--  .prevent 调用event.preventDefault，阻止默认行为-->
+  <form>
+    <input type="submit" value="提交" @click.prevent="btnSubmit">
+  </form>
+  <h2>{{message}}</h2>
+
+  <!--监听某个键盘的点击-->
+  <!--  <input type="text" @keyup="keyup">-->
+  <input type="text" @keydown.enter="keyup">
+  <br>
+
+  <!--.once只监听一次-->
+  <!--  <button @click.once="btnSubmit">按钮3</button>-->
+  <button @click.once="onceClick">按钮3</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '伏久者 飞必高'
+    },
+    methods: {
+      btnClick() {
+        console.log('--------');
+      },
+      divClick() {
+        console.log('=======');
+      },
+      btnSubmit() {
+        console.log('~~~~~~~~');
+      },
+      keyup() {
+        console.log('+++++++');
+      },
+      onceClick() {
+        console.log('江南好');
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>

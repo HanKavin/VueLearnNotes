@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <button @click="btnclick()">按钮1</button>
+  <button @click="btnclick">按钮2</button>
+
+          <!--在事件定义时，写函数时省略了小括号，但是方法本身是需要一个参数的 -->
+  <button @click="btnclick2('hello')">按钮3</button>
+  <button @click="btnclick2()">按钮4</button> <!--  ___________ undefined-->
+  <button @click="btnclick2">按钮5</button> <!--  Vue将浏览器产生的event事件对象作为参数传入到方法-->
+  <!--  MouseEvent {isTrusted: true, screenX: -1318, screenY: 141, clientX: 241, clientY: 23, …}-->
+
+  <h2>{{message}}</h2>
+
+  <!--  方法定义时，需要event对象，同时又需要其他的参数-->
+  <!--  手动的获取浏览器参数的event对象：$event-->
+  <button @click="btnclick3(3,event)">按钮1</button>
+  <button @click="btnclick3(555,$event)">按钮2</button>
+<!-- ======= 555 MouseEvent {isTrusted: true, screenX: -1496, screenY: 193, clientX: 84, clientY: 112, …} -->
+</div>
+
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '伏久者 飞必高'
+    },
+    methods: {
+      btnclick() {
+        console.log("kk");
+      },
+      btnclick2(abc) {
+        console.log('___________', abc);
+      },
+      btnclick3(abc, event) {
+        console.log('=======', abc, event);
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>
