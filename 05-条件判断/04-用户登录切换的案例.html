@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <span v-if="isUser">
+    <label>用户账号</label>
+    <input type="text" id="username" placeholder="用户账号" key="abc">
+  </span>
+  <span v-else>
+    <label>用户邮箱</label>
+    <input type="text" id="email" placeholder="用户邮箱" key="abc">
+  </span>
+  <button @click="isUser=!isUser">切换</button>
+
+<!--  切换两项时，输入框中的内容保持不变，虚拟DOM到界面渲染的机制，复用相近的元素-->
+<!--  使用key，若其中两个内容不同，则不会进行复用-->
+  <h2>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '伏久者 飞必高',
+      isUser: true
+    }
+  })
+</script>
+
+
+</body>
+</html>

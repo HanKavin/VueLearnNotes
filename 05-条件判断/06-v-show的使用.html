@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+<!--  v-if:  当条件为false时，包含v-if指令的元素，不会存在于dom中   在切换频率高时使用 -->
+<!--  v-show:当条件为false时，给元素添加一个行内样式：display： none    在切换频率高时使用-->
+
+  <h2 v-show="isShow">{{message}}</h2>
+  <h2 v-show="!isShow">{{ssr}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '开先者 谢独早',
+      ssr: '玉藻前',
+      isShow: true
+    }
+  })
+</script>
+
+
+</body>
+</html>

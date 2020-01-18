@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <h2 v-if="score>90">优秀</h2>
+  <h2 v-else-if="score>60">及格</h2>
+  <h2 v-else>不及格</h2>
+
+  <h2>{{result}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '伏久者 飞必高',
+      isTrue: true,
+      score: 67
+    },
+    computed: {
+      result() {
+        let showmessage = '';
+        if (this.score >= 90) {
+          showmessage = '优秀'
+        } else if (this.score >= 60) {
+          showmessage = '及格'
+        } else {
+          showmessage = '不及格'
+        }
+        return showmessage;
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>
