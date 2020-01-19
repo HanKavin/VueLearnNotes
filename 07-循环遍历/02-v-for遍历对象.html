@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+  <!--在遍历对象时，若只用item，则只是获取了value-->
+  <!--  使用（value，key）获取键值对-->
+  <ul>
+    <li v-for="item in info">{{item}}</li>
+  </ul>
+
+  <ul>
+    <li v-for="(value,key) in info">{{key}}—{{value}}</li>
+  </ul>
+
+  <ul>
+    <li v-for="(value, key, index) in info">{{index+1}}.{{key}}:{{value}}</li>
+  </ul>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '开先者 谢独早',
+      info: {
+        name: 'hkw',
+        age: 18,
+        hobey: 'movie'
+      }
+    }
+  })
+</script>
+
+
+</body>
+</html>

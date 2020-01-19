@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <button @click="btnClick">哈哈哈</button>
+  <ul>
+    <li v-for="item in letters">{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      letters: ['a', 'b', 'c', 'd', 'e']
+    },
+    methods: {
+      btnClick() {
+        //push方法
+        // this.letters.push('黑白')
+
+        // pop（）删除数组中的最后一个元素
+        // this.letters.pop();
+
+        // shift（）删除数组中的第一个元素
+        // this.letters.shift();
+
+        //unshift(): 在数组最前面添加元素
+        // this.letters.unshift('dd', 'ff', 'tt');
+
+        //splice（）可以删除、插入和替换元素
+        // this.letters.splice()
+
+        //sort（） reverse()
+
+        Vue.set(this.letters, 0, 'filiter')
+
+        // 通过索引修改数组的元素（不能做到响应式）
+        // this.letters[0] = '缘分一道桥'
+      }
+    }
+  })
+
+  //可变参数
+  // function sum(...num) {
+  //
+  // }
+
+</script>
+
+
+</body>
+</html>
