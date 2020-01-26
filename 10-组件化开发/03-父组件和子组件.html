@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <cpn2></cpn2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+
+  const cpnC1 = Vue.extend({
+    template: `
+    <div>
+     <h2>标题1</h2>
+     <p>内容1</p>
+    </div>
+    `
+  })
+
+
+  const cpnC2 = Vue.extend({
+    template: `
+    <div>
+     <h2>标题2</h2>
+     <p>内容2</p>
+     <cpn1></cpn1>
+    </div>`,
+    //低级错误2：少写了<cpn1></cpn1> 导致无法显示子组件的内容
+    components: {
+      cpn1: cpnC1
+    }
+  })
+
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你看这月色'
+    },
+    components: {
+      cpn2: cpnC2
+    }
+  })
+</script>
+
+
+</body>
+</html>

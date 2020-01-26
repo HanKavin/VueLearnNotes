@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+<div id="app">
+  <my-con></my-con>
+  <h2>局部组件</h2>
+  <cpn></cpn>
+  <p>1111</p>
+
+</div>
+
+<div id="app2">
+  <my-con></my-con>
+  <h2>局部组件</h2>
+  <cpn></cpn>
+  <p>1111</p>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  // 创建组件构造器对象
+  const cpnC = Vue.extend({
+    template: `
+      <div>
+        <h2>标题</h2>
+        <p>内容</p>
+      </div>`
+  });
+
+  //  注册组件（全局组件）
+  Vue.component('my-con', cpnC);
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '你看这月色'
+    },
+    //低级错误：components 而不是 component
+
+    components: {
+      cpn: cpnC
+    }
+    //  局部组件
+  });
+
+  const app2 = new Vue({
+    el: '#app2',
+    data: {
+      message: '你看'
+    }
+  })
+</script>
+
+
+</body>
+</html>
